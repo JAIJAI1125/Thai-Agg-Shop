@@ -1,0 +1,131 @@
+from tkinter import *
+from tkinter import messagebox
+
+m = Tk()
+m.title("รวมยอดอาหาร")
+m.geometry("1000x650")
+m.resizable(False, False)
+m.configure(background="#325145")
+
+Label(m, font=("aria", 30, "bold"), text="Master Chef", bg="yellow", fg="black", width=20, height=2).pack()
+
+f1 = Frame(m, bg="light sky blue", highlightbackground="black", highlightthickness=2, width=300, height=540)
+f1.place(x=0, y=100)
+
+Label(f1, font=("aria", 25, "bold"), text="Menu", bg="light sky blue").place(x=110, y=20)
+
+Label(f1, font=("aria", 18, "bold"), text="ไข่ดาว              15บาท", width=19, fg="black").place(x=3, y=90)
+Label(f1, font=("aria", 18, "bold"), text="ไข่เจียว              20บาท", width=19, fg="black").place(x=3, y=140)
+Label(f1, font=("aria", 18, "bold"), text="ไข่ต้ม               10บาท", width=19, fg="black").place(x=3, y=190)
+Label(f1, font=("aria", 18, "bold"), text="ไข่ตุ๋น               30บาท", width=19, fg="black").place(x=3, y=240)
+Label(f1, font=("aria", 18, "bold"), text="ไข่พะโล้             35บาท", width=19, fg="black").place(x=3, y=290)
+Label(f1, font=("aria", 18, "bold"), text="ไข่ลูกเขย          40บาท", width=19, fg="black").place(x=3, y=340)
+Label(f1, font=("aria", 18, "bold"), text="ไข่ยัดไส้            35บาท", width=19, fg="black").place(x=3, y=390)
+
+f2 = Frame(m, bg="orange", highlightbackground="black", highlightthickness=2, width=400, height=540)
+f2.place(x=300, y=100)
+
+Label(f2, font=("aria", 20, "bold"), text="บิล", bg="lightyellow").place(x=190, y=5)
+Label(f2, font=("aria", 20, "bold"), text="เมนู", bg="lightyellow").place(x=80, y=40)
+Label(f2, font=("aria", 20, "bold"), text="จำนวน", bg="lightyellow").place(x=260, y=40)
+
+Label(f2, font=("aria", 20, "bold"), text="ไข่ดาว", width=10, fg="blue4").place(x=10, y=90)
+Label(f2, font=("aria", 20, "bold"), text="ไข่เจียว", width=10, fg="blue4").place(x=10, y=140)
+Label(f2, font=("aria", 20, "bold"), text="ไข่ต้ม", width=10, fg="blue4").place(x=10, y=190)
+Label(f2, font=("aria", 20, "bold"), text="ไข่ตุ๋น", width=10, fg="blue4").place(x=10, y=240)
+Label(f2, font=("aria", 20, "bold"), text="ไข่พะโล้", width=10, fg="blue4").place(x=10, y=290)
+Label(f2, font=("aria", 20, "bold"), text="ไข่ลูกเขย", width=10, fg="blue4").place(x=10, y=340)
+Label(f2, font=("aria", 20, "bold"), text="ไข่ยัดไส้", width=10, fg="blue4").place(x=10, y=390)
+
+ไข่ดาว = StringVar()
+ไข่เจียว = StringVar()
+ไข่ต้ม = StringVar()
+ไข่ตุ๋น = StringVar()
+ไข่พะโล้ = StringVar()
+ไข่ลูกเขย = StringVar()
+ไข่ยัดไส้ = StringVar()
+ราคารวม = StringVar()
+
+def Total():
+    try:
+        a1 = int(ไข่ดาว.get())
+    except:
+        a1 = 0
+
+    try:
+        a2 = int(ไข่เจียว.get())
+    except:
+        a2 = 0
+
+    try:
+        a3 = int(ไข่ต้ม.get())
+    except:
+        a3 = 0
+
+    try:
+        a4 = int(ไข่ตุ๋น.get())
+    except:
+        a4 = 0
+    try:
+        a5 = int(ไข่พะโล้.get())
+    except:
+        a5 = 0
+    try:
+        a6 = int(ไข่ลูกเขย.get())
+    except:
+        a6 = 0
+    try:
+        a7 = int(ไข่ยัดไส้.get())
+    except:
+        a7 = 0
+
+    c1 = 15 * a1
+    c2 = 20 * a2
+    c3 = 10 * a3
+    c4 = 30 * a4
+    c5 = 35 * a5
+    c6 = 40 * a6
+    c7 = 35 * a7
+    totalcost = c1 + c2 + c3 + c4 + c5 + c6 + c7
+    string_bill = str("%.2f" % totalcost) + "บาท"
+    ราคารวม.set(string_bill)
+
+entry_ไข่ดาว = Entry(f2, font=("aria", 20, "bold"), textvariable=ไข่ดาว, bd=4, width=10, bg="lightpink")
+entry_ไข่ดาว.place(x=230, y=90)
+entry_ไข่เจียว = Entry(f2, font=("aria", 20, "bold"), textvariable=ไข่เจียว, bd=4, width=10, bg="lightpink")
+entry_ไข่เจียว.place(x=230, y=140)
+entry_ไข่ต้ม = Entry(f2, font=("aria", 20, "bold"), textvariable=ไข่ต้ม, bd=4, width=10, bg="lightpink")
+entry_ไข่ต้ม.place(x=230, y=190)
+entry_ไข่ตุ๋น = Entry(f2, font=("aria", 20, "bold"), textvariable=ไข่ตุ๋น, bd=4, width=10, bg="lightpink")
+entry_ไข่ตุ๋น.place(x=230, y=240)
+entry_ไข่พะโล้ = Entry(f2, font=("aria", 20, "bold"), textvariable=ไข่พะโล้, bd=4, width=10, bg="lightpink")
+entry_ไข่พะโล้.place(x=230, y=290)
+entry_ไข่ลูกเขย = Entry(f2, font=("aria", 20, "bold"), textvariable=ไข่ลูกเขย, bd=4, width=10, bg="lightpink")
+entry_ไข่ลูกเขย.place(x=230, y=340)
+entry_ไข่ยัดไส้ = Entry(f2, font=("aria", 20, "bold"), textvariable=ไข่ยัดไส้, bd=4, width=10, bg="lightpink")
+entry_ไข่ยัดไส้.place(x=230, y=390)
+
+def Reset():
+    entry_ไข่ดาว.delete(0, END)
+    entry_ไข่เจียว.delete(0, END)
+    entry_ไข่ต้ม.delete(0, END)
+    entry_ไข่ตุ๋น.delete(0, END)
+    entry_ไข่พะโล้.delete(0, END)
+    entry_ไข่ลูกเขย.delete(0, END)
+    entry_ไข่ยัดไส้.delete(0, END)
+    entry_total.delete(0, END)
+
+Button(f2, bd=5, fg="black", bg="lightblue", font=("ariel", 16, "bold"), width=10, text="Reset", command=Reset).place(x=130, y=490)
+
+Button(f2, bd=5, fg="black", bg="blue", font=("ariel", 16, "bold"), width=10, text="Total", command=Total).place(x=130, y=440)
+
+f3 = Frame(m, bg="light sky blue", highlightbackground="black", highlightthickness=2, width=300, height=540)
+f3.place(x=700, y=100)
+
+Label(f3, font=("aria", 20, "bold"), text="ราคารวม", width=16, fg="lightyellow", bg="black").place(x=8, y=100)
+
+entry_total = Entry(f3, font=("aria", 20, "bold"), textvariable=ราคารวม, bd=6, width=15, bg="green")
+entry_total.place(x=30, y=180)
+
+m.mainloop()
+
